@@ -32,7 +32,7 @@ public class tilemap : MonoBehaviour
     Vector3 currentTileSize;
     bool delete = false;
     bool rectangleTool = false;
-    bool rectangleToolFirstClick = false;
+    Vector3 rectangleToolFirstClickLocation = new Vector3(-100f, -100f, 0f);
 
     public int columns;
     public int rows;
@@ -164,7 +164,25 @@ public class tilemap : MonoBehaviour
             else if(rectangleTool == true)
             {
                 tilePreviewSR.sprite = GameObject.Find("rectangleTool").GetComponent<Image>().sprite;
-
+                
+                if (Input.GetMouseButton(0))
+                {
+                    if (tilemap1.GetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0))!=xTile)
+                    {
+                        if(rectangleToolFirstClickLocation == new Vector3(-100f, -100f, 0f))
+                        {
+                            rectangleToolFirstClickLocation = new Vector3(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0);
+                        }
+                        else
+                        {
+                            tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - mousePos.x), Mathf.Abs(rectangleToolFirstClickLocation.y - mousePos.y), 1f);
+                            tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + transform.position.x)/2f, (rectangleToolFirstClickLocation.y + transform.position.y)/2f, 0);
+                        }
+                        
+                    }
+                }
+                
+                
                 /*
 
 
