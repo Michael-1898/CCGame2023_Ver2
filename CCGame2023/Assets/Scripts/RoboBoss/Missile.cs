@@ -13,6 +13,8 @@ public class Missile : MonoBehaviour
     float launchTimer;
     bool lockingOn;
     bool targetAcquired;
+    float angleMover;
+    [SerializeField] float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +41,21 @@ public class Missile : MonoBehaviour
             Vector3 targetPosition = GameObject.FindWithTag("Player").transform.position;
             Vector3 dir = (targetPosition - transform.position).normalized;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-            transform.localRotation = Quaternion.Euler(0f, 0f, angle);
-            
-            targetAcquired = true;
-            lockingOn = false;
+            print(angle);
+
+            if(targetPosition.x >= transform.position.x && rotationSpeed > 0) {
+                rotationSpeed *= -1;
+            } else if(targetPosition.x < transform.position.x && rotationSpeed < 0) {
+                rotationSpeed *= -1;
+            }
+            transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
+            print(transform.localRotation.eulerAngles.z);
+
+            if(transform.localRotation == Quaternion.Euler(0f, 0f, angle)) {
+                print("locked on");
+                targetAcquired = true;
+                lockingOn = false;
+            }
         }
 
         if(targetAcquired) {
