@@ -45,8 +45,6 @@ public class tilemap : MonoBehaviour
         tilePreviewSR = tilePreview.GetComponent<SpriteRenderer>();
         Cursor.lockState = CursorLockMode.Confined;
 
-        print(allTileCharacters.Count + " YOULOUIHN");
-        print(allTileLimits.Count + " yugebosh");
         for (int i = 0; i < allTileLimits.Count; i++)
         {
             allTileCurrentNumbers.Add(0);
@@ -63,7 +61,6 @@ public class tilemap : MonoBehaviour
             tilePreview.transform.position = new Vector3(Mathf.Floor(mousePos.x)+0.5f, Mathf.Floor(mousePos.y)+0.5f, 0f);
             if(Input.GetKeyDown("escape"))
             {
-                print("escape");
                 currentTile = null;
                 tilePreviewSR.sprite = null;
                 delete=false;
@@ -171,16 +168,24 @@ public class tilemap : MonoBehaviour
                     {
                         if(rectangleToolFirstClickLocation == new Vector3(-100f, -100f, 0f))
                         {
+                            print(rectangleToolFirstClickLocation);
                             rectangleToolFirstClickLocation = new Vector3(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0);
+                            print(rectangleToolFirstClickLocation);
                         }
                         else
                         {
-                            tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - mousePos.x), Mathf.Abs(rectangleToolFirstClickLocation.y - mousePos.y), 1f);
-                            tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + transform.position.x)/2f, (rectangleToolFirstClickLocation.y + transform.position.y)/2f, 0);
+                            
                         }
                         
                     }
                 }
+                if(rectangleToolFirstClickLocation != new Vector3(-100f, -100f, 0f))
+                {
+                    tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - Mathf.Floor(mousePos.x)+0.5f), Mathf.Abs(rectangleToolFirstClickLocation.y - Mathf.Floor(mousePos.y)+0.5f), 1f);
+                    tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + Mathf.Floor(mousePos.x)+0.5f)/2f, (rectangleToolFirstClickLocation.y + Mathf.Floor(mousePos.y)+0.5f)/2f, 0);
+                    
+                }
+                
                 
                 
                 /*
