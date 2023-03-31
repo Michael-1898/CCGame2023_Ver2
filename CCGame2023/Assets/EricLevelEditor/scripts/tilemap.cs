@@ -64,6 +64,7 @@ public class tilemap : MonoBehaviour
                 currentTile = null;
                 tilePreviewSR.sprite = null;
                 delete=false;
+                rectangleTool = false;
             }
             if (currentTileSize != new Vector3(1f, 1f, 0f) && delete == false && rectangleTool == false)
             {
@@ -162,29 +163,32 @@ public class tilemap : MonoBehaviour
             {
                 tilePreviewSR.sprite = GameObject.Find("rectangleTool").GetComponent<Image>().sprite;
                 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     if (tilemap1.GetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0))!=xTile)
                     {
                         if(rectangleToolFirstClickLocation == new Vector3(-100f, -100f, 0f))
                         {
-                            print(rectangleToolFirstClickLocation);
                             rectangleToolFirstClickLocation = new Vector3(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0);
-                            print(rectangleToolFirstClickLocation);
                         }
-                        else
+                        else if(mousePos.x > rectangleToolFirstClickLocation.x + 1f && mousePos.y > rectangleToolFirstClickLocation.y + 1f)
                         {
-                            
+                            UseRectangleTool(Mathf.FloorToInt(tilePreview.transform.localScale.y), Mathf.FloorToInt(tilePreview.transform.localScale.x));
                         }
                         
                     }
                 }
-                if(rectangleToolFirstClickLocation != new Vector3(-100f, -100f, 0f))
+                if(rectangleToolFirstClickLocation != new Vector3(-100f, -100f, 0f) &&(mousePos.x > rectangleToolFirstClickLocation.x + 1f && mousePos.y > rectangleToolFirstClickLocation.y + 1f))
                 {
-                    tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - Mathf.Floor(mousePos.x)+0.5f), Mathf.Abs(rectangleToolFirstClickLocation.y - Mathf.Floor(mousePos.y)+0.5f), 1f);
-                    tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + Mathf.Floor(mousePos.x)+0.5f)/2f, (rectangleToolFirstClickLocation.y + Mathf.Floor(mousePos.y)+0.5f)/2f, 0);
-                    
+                    tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - Mathf.Floor(mousePos.x)+0.5f)+1.5f, Mathf.Abs(rectangleToolFirstClickLocation.y - Mathf.Floor(mousePos.y)+0.5f)+1.5f, 1f);
+                    tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + Mathf.Floor(mousePos.x)+0.5f)/2f, (rectangleToolFirstClickLocation.y + Mathf.Floor(mousePos.y)+0.75f)/2f, 0);
                 }
+                else
+                {
+                    //WORK HERE IT IS SUPER IMPORTANT
+                    tilePreview.transform.position = rectangleToolFirstClickLocation;
+                } 
+                
                 
                 
                 
@@ -221,17 +225,32 @@ public class tilemap : MonoBehaviour
         }
     }
 
+    public void UseRectangleTool(int rows, int columns)
+    {
+        bool noXTiles = true;
+        for(int r = 0; r < rows; r++)
+        {
+            for(int c = 0; c < columns; c++)
+            {
+                if (tilemap1.GetTile(new Vector3Int(c, r, 0)) == xTile)
+                {
+                    noXTiles = false;
+                }
+            }
+        }
+        print(noXTiles);
+
+    }
+
     public void deleteXTiles()
     {
         for (int temp = 1; temp < tilemap.allTiles.Count; temp++)
         {
             if (tilemap1.GetTile(currentDeletionLocation) == tilemap.allTiles[temp] && tilemap1.GetTile(currentDeletionLocation) != null && tilemap1.GetTile(currentDeletionLocation) != xTile)
             {
-                print(tilemap.allTiles[temp]);
                 allTileCurrentNumbers[temp]--;
                 for (int temp2 = 1; temp2 < (tilemap.allTileSizes[temp].x * tilemap.allTileSizes[temp].y); temp2++)
                 {
-                    print(new Vector3Int(Mathf.FloorToInt(currentDeletionLocation.x + (temp2 % tilemap.allTileSizes[temp].x)), currentDeletionLocation.y + Mathf.FloorToInt(temp2 / tilemap.allTileSizes[temp].x), 0));
                     tilemap1.SetTile(new Vector3Int(Mathf.FloorToInt(currentDeletionLocation.x + (temp2 % tilemap.allTileSizes[temp].x)), currentDeletionLocation.y + Mathf.FloorToInt(temp2 / tilemap.allTileSizes[temp].x), 0), null);
                 }
             }
@@ -325,7 +344,6 @@ public class tilemap : MonoBehaviour
         {
             string nameOfLevel = levelNameText.text;
             string nameOfCreator = creatorNameText.text;
-            print(creatorNameText.text);
             if (nameOfLevel != "" && nameOfCreator != "")
             {
                 if(allTileCurrentNumbers[5] == 1)
