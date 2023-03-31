@@ -222,7 +222,7 @@ public class RoboController : MonoBehaviour
         missileTimer += Time.deltaTime;
         if(missileTimer >= missileCooldown) {
             //fire missile
-            missileAngle = Random.Range(-1f, 10f); //sets random angle for missiel to spawn at, so they don't all take same path up
+            missileAngle = Random.Range(-17f, 26f); //sets random angle for missiel to spawn at, so they don't all take same path up
             GameObject newMissile = Instantiate(missile, missilePt.position, Quaternion.Euler(0, 0, missileAngle));
             newMissile.GetComponent<Rigidbody2D>().velocity = (newMissile.transform.GetChild(0).transform.position - newMissile.transform.GetChild(1).transform.position).normalized * missileSpeed * (Time.deltaTime + 1);
 

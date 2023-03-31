@@ -206,5 +206,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1285743168422995415}
-  launchTime: 1.2
-  rotationSpeed: 100
+  launchTime: 0.7
+  rotationSpeed: 150

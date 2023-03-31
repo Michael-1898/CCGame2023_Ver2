@@ -29,7 +29,9 @@ public class Missile : MonoBehaviour
         if(launchTimer >= launchTime) {
             //stop moving up
             rb.velocity = Vector3.zero;
-            lockingOn = true;
+            if(!lockingOn && !targetAcquired) {
+                lockingOn = true;
+            }
 
             //orientate towards player
 
@@ -41,7 +43,10 @@ public class Missile : MonoBehaviour
             Vector3 targetPosition = GameObject.FindWithTag("Player").transform.position;
             Vector3 dir = (targetPosition - transform.position).normalized;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-            print(angle);
+            if(angle < 0) {
+                angle += 360;
+            }
+            print(Mathf.Round(angle));
 
             if(targetPosition.x >= transform.position.x && rotationSpeed > 0) {
                 rotationSpeed *= -1;
@@ -49,9 +54,9 @@ public class Missile : MonoBehaviour
                 rotationSpeed *= -1;
             }
             transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
-            print(transform.localRotation.eulerAngles.z);
+            print(Mathf.Round(transform.localRotation.eulerAngles.z));
 
-            if(transform.localRotation == Quaternion.Euler(0f, 0f, angle)) {
+            if(Mathf.Round(transform.localRotation.eulerAngles.z) == Mathf.Round(angle)) {
                 print("locked on");
                 targetAcquired = true;
                 lockingOn = false;
