@@ -15,18 +15,21 @@ public class Missile : MonoBehaviour
     bool targetAcquired;
     float angleMover;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float missileSpeed;
+    [SerializeField] int missileDmg;
+    bool isTracking;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isTracking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         launchTimer += Time.deltaTime;
-        if(launchTimer >= launchTime) {
+        if(launchTimer >= launchTime && !isTracking) {
             //stop moving up
             rb.velocity = Vector3.zero;
             if(!lockingOn && !targetAcquired) {
@@ -46,7 +49,7 @@ public class Missile : MonoBehaviour
             if(angle < 0) {
                 angle += 360;
             }
-            print(Mathf.Round(angle));
+            //print(Mathf.Round(angle));
 
             if(targetPosition.x >= transform.position.x && rotationSpeed > 0) {
                 rotationSpeed *= -1;
@@ -54,17 +57,31 @@ public class Missile : MonoBehaviour
                 rotationSpeed *= -1;
             }
             transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
-            print(Mathf.Round(transform.localRotation.eulerAngles.z));
+            //print(Mathf.Round(transform.localRotation.eulerAngles.z));
 
-            if(Mathf.Round(transform.localRotation.eulerAngles.z) == Mathf.Round(angle)) {
-                print("locked on");
+            if(Mathf.Round(transform.localRotation.eulerAngles.z) == Mathf.Round(angle) || Mathf.Round(transform.localRotation.eulerAngles.z) == Mathf.Round(angle - 1) || Mathf.Round(transform.localRotation.eulerAngles.z) == Mathf.Round(angle + 1)) {
+                //print("locked on");
                 targetAcquired = true;
                 lockingOn = false;
             }
         }
 
-        if(targetAcquired) {
+        if(targetAcquired && !isTracking) {
             //launch at player
+            Vector3 targetPosition = GameObject.FindWithTag("Player").transform.position;
+            targetPosition.y += 1.4f;
+            Vector3 dir = (targetPosition - transform.position).normalized * missileSpeed;
+            rb.velocity = new Vector2(dir.x, dir.y);
+            print(rb.velocity);
+            Destroy(gameObject, 4);
+            isTracking = true;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D col) {
+        if(col.gameObject.CompareTag("Player")) {
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(missileDmg);
+        }
+        Destroy(gameObject);
     }
 }

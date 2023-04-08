@@ -208,3 +208,5 @@ MonoBehaviour:
   rb: {fileID: 1285743168422995415}
   launchTime: 0.7
   rotationSpeed: 150
+  missileSpeed: 17
+  missileDmg: 1
