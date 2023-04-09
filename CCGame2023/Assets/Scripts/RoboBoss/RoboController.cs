@@ -49,6 +49,7 @@ public class RoboController : MonoBehaviour
     [SerializeField] Transform smokePtL;
     [SerializeField] Transform smokePtR;
     bool smoked;
+    public Animator anim;
 
     //variables for attk3
     [SerializeField] GameObject missile;
@@ -193,9 +194,12 @@ public class RoboController : MonoBehaviour
             //sets movement direction towards player
             if(player.position.x < transform.position.x && ramSpeed > 0) {
                 ramSpeed *= -1;
+                anim.SetBool("Direction", true);
             } else if(player.position.x >= transform.position.x && ramSpeed < 0) {
                 ramSpeed *= -1;
+                anim.SetBool("Direction", false);
             }
+            anim.SetBool("isMoving", true);
 
             isRamming = true;
             ramCharging = false;
@@ -210,6 +214,7 @@ public class RoboController : MonoBehaviour
                 smoked = false;
                 ramChargeTimer = 0;
                 isRamming = false;
+                anim.SetBool("isMoving", false);
             }
         }
     }
@@ -222,7 +227,7 @@ public class RoboController : MonoBehaviour
         missileTimer += Time.deltaTime;
         if(missileTimer >= missileCooldown) {
             //fire missile
-            missileAngle = Random.Range(-17f, 26f); //sets random angle for missiel to spawn at, so they don't all take same path up
+            missileAngle = Random.Range(-22f, 31f); //sets random angle for missiel to spawn at, so they don't all take same path up
             GameObject newMissile = Instantiate(missile, missilePt.position, Quaternion.Euler(0, 0, missileAngle));
             newMissile.GetComponent<Rigidbody2D>().velocity = (newMissile.transform.GetChild(0).transform.position - newMissile.transform.GetChild(1).transform.position).normalized * missileSpeed * (Time.deltaTime + 1);
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ObstacleCollider
   - LargeBoss
+  - Missile
   layers:
   - Default
   - TransparentFX

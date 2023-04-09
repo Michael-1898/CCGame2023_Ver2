@@ -18,6 +18,7 @@ public class Missile : MonoBehaviour
     [SerializeField] float missileSpeed;
     [SerializeField] int missileDmg;
     bool isTracking;
+    [SerializeField] GameObject explosionFX;
 
     // Start is called before the first frame update
     void Start()
@@ -72,16 +73,21 @@ public class Missile : MonoBehaviour
             targetPosition.y += 1.4f;
             Vector3 dir = (targetPosition - transform.position).normalized * missileSpeed;
             rb.velocity = new Vector2(dir.x, dir.y);
-            print(rb.velocity);
+            
             Destroy(gameObject, 4);
             isTracking = true;
         }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
+        Instantiate(explosionFX, transform.position, Quaternion.identity); //instantiate particle effect
+
         if(col.gameObject.CompareTag("Player")) {
             col.gameObject.GetComponent<PlayerHealth>().TakeDamage(missileDmg);
         }
-        Destroy(gameObject);
+
+        if(!col.gameObject.CompareTag("Missile")) {
+            Destroy(gameObject);
+        }
     }
 }
