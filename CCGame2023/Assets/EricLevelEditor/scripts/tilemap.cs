@@ -65,10 +65,13 @@ public class tilemap : MonoBehaviour
                 tilePreviewSR.sprite = null;
                 delete=false;
                 rectangleTool = false;
+                rectangleToolFirstClickLocation = new Vector3(-100f, -100f, 0f);
+                tilePreview.transform.localScale = new Vector3(1f, 1f, 1f);
             }
             if (currentTileSize != new Vector3(1f, 1f, 0f) && delete == false && rectangleTool == false)
             {
                 tilePreviewSR.sprite = currentTile.sprite;
+                
                 bool noXTiles = true;
                 for (int w = 0; w < (currentTileSize.x * currentTileSize.y); w++)
                 {
@@ -114,7 +117,7 @@ public class tilemap : MonoBehaviour
             else if(delete == false && rectangleTool == false)
             {
                 tilePreviewSR.sprite = currentTile.sprite;
-          
+                
                 if(allTileLimits[currentTileIndex] > allTileCurrentNumbers[currentTileIndex])
                 {
                     GameObject.Find("Warning Text").GetComponent<Text>().text = "";
@@ -177,16 +180,33 @@ public class tilemap : MonoBehaviour
                         }
                         
                     }
-                }
+                } 
                 if(rectangleToolFirstClickLocation != new Vector3(-100f, -100f, 0f) &&(mousePos.x > rectangleToolFirstClickLocation.x + 1f && mousePos.y > rectangleToolFirstClickLocation.y + 1f))
                 {
-                    tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - Mathf.Floor(mousePos.x)+0.5f)+1.5f, Mathf.Abs(rectangleToolFirstClickLocation.y - Mathf.Floor(mousePos.y)+0.5f)+1.5f, 1f);
-                    tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + Mathf.Floor(mousePos.x)+0.5f)/2f, (rectangleToolFirstClickLocation.y + Mathf.Floor(mousePos.y)+0.75f)/2f, 0);
+                    tilePreviewSR.color = Color.white;
+                    tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - Mathf.Floor(mousePos.x)+0.5f)+2f, Mathf.Abs(rectangleToolFirstClickLocation.y - Mathf.Floor(mousePos.y)+0.5f)+2f, 1f);
+                    tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + Mathf.Floor(mousePos.x)+1f)/2f, (rectangleToolFirstClickLocation.y + Mathf.Floor(mousePos.y)+1f)/2f, 0);
+                
+                    if(Input.GetMouseButtonDown(0))
+                    {
+                        rectangleTool = false;
+                        rectangleToolFirstClickLocation = new Vector3(-100f, -100f, 0f);
+                        currentTile = null;
+                        tilePreview.transform.localScale = new Vector3(1f, 1f, 1f);
+
+                    }
+                    GameObject.Find("Warning Text").GetComponent<Text>().text = "";
                 }
                 else
                 {
-                    //WORK HERE IT IS SUPER IMPORTANT
-                    tilePreview.transform.position = rectangleToolFirstClickLocation;
+                    tilePreviewSR.color = Color.red;
+                    if (rectangleToolFirstClickLocation != new Vector3(-100f, -100f, 0f))
+                    {
+                        tilePreview.transform.localScale = new Vector3(Mathf.Abs(rectangleToolFirstClickLocation.x - Mathf.Floor(mousePos.x) + 0.5f) + 2f, Mathf.Abs(rectangleToolFirstClickLocation.y - Mathf.Floor(mousePos.y) + 0.5f) + 2f, 1f);
+                        tilePreview.transform.position = new Vector3((rectangleToolFirstClickLocation.x + Mathf.Floor(mousePos.x) + 1f) / 2f, (rectangleToolFirstClickLocation.y + Mathf.Floor(mousePos.y) + 1f) / 2f, 0);
+                        GameObject.Find("Warning Text").GetComponent<Text>().text = "Move mouse up and right of your original click";
+                    }
+                   
                 } 
                 
                 
@@ -223,6 +243,7 @@ public class tilemap : MonoBehaviour
         {
             print(getTilemapInformation(columns, rows));
         }
+        print(tilePreviewSR.sprite);
     }
 
     public void UseRectangleTool(int rows, int columns)
@@ -232,12 +253,81 @@ public class tilemap : MonoBehaviour
         {
             for(int c = 0; c < columns; c++)
             {
-                if (tilemap1.GetTile(new Vector3Int(c, r, 0)) == xTile)
+                if (tilemap1.GetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0)) == xTile)
                 {
                     noXTiles = false;
                 }
             }
         }
+        if(noXTiles)
+        {
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < columns; c++)
+                {
+                    if(r == 0)
+                    {
+                        if(c == 0)
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-11, -11, 0)));
+                        }
+                        else if(c == columns - 1)
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-9, -11, 0)));
+                        }
+                        else
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-10, -11, 0)));
+                        }
+                    }
+                    
+                    
+                    else if(r == rows-1)
+                    {   
+                        if(c == 0)
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-11, -9, 0)));
+
+                        }
+                        else if(c == columns - 1)
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-9, -9, 0)));
+                        }
+                        else {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-10, -9, 0)));
+                        }
+                    }
+                    else
+                    {
+                        if(c == 0)
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-11, -10, 0)));
+                            print("a");
+                        }
+                        else if (c == columns - 1)
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-9, -10, 0)));
+                            
+                            print("b");
+                        }
+                        else
+                        {
+                            tilemap1.SetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0), tilemap1.GetTile(new Vector3Int(-10, -10, 0)));
+                            print("c");
+                        }
+                    }
+                }
+            }
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < columns; c++)
+                {
+                    print(tilemap1.GetTile(new Vector3Int(c + Mathf.FloorToInt(rectangleToolFirstClickLocation.x), r + Mathf.FloorToInt(rectangleToolFirstClickLocation.y), 0)));
+
+                }
+            }
+        }
+        
         print(noXTiles);
 
     }
@@ -313,10 +403,12 @@ public class tilemap : MonoBehaviour
 
     public void buttonClicked(string name)
     {
+        print("button clicked");
         for(int i = 0; i < allTileCharacters.Count; i++)
         {
             if(allTileCharacters[i] == name)
             {
+                print("Should be tile");
                 currentTile = allTiles[i];
                 currentTileSize = allTileSizes[i];
                 currentTileIndex = i;
