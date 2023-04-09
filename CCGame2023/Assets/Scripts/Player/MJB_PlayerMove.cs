@@ -230,7 +230,7 @@ public class MJB_PlayerMove : MonoBehaviour
         }
 
         //jump code (initial jump)
-        if((Input.GetKeyDown("z")) && (isGrounded == true || numJumps > 0))
+        if((Input.GetKeyDown("space")) && (isGrounded == true || numJumps > 0))
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
@@ -247,7 +247,7 @@ public class MJB_PlayerMove : MonoBehaviour
         }
 
         //jump code (extended jump/holding down jump)
-        if((Input.GetKey("z")) && isJumping == true)
+        if((Input.GetKey("space")) && isJumping == true)
         {
             if(jumpTimeCounter > 0)
             {
@@ -265,7 +265,7 @@ public class MJB_PlayerMove : MonoBehaviour
         }
 
         //jump code (ends jump when lifting button/taking finger off button)
-        if(Input.GetKeyUp("z"))
+        if(Input.GetKeyUp("space"))
         {
             isJumping = false;
             myAnim.SetBool("isJumping", false);
