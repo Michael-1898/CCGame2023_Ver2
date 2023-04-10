@@ -41,7 +41,6 @@ public class RockMan : MonoBehaviour
         }
         else grounded = false;
 
-        print(grounded);
         hit = Physics2D.Raycast(transform.position + new Vector3(0.6f * direction, 0.5f, 0f), Vector2.right * direction, 10f);
 
         if (hit.collider != null)
@@ -64,7 +63,6 @@ public class RockMan : MonoBehaviour
         {
             if(grounded)
             {
-                print("change direction");
                 direction *= -1;
                 transform.Rotate(new Vector3(0, 180, 0));
             }
@@ -94,7 +92,6 @@ public class RockMan : MonoBehaviour
                     hit = Physics2D.Raycast(transform.position + new Vector3(0.6f*direction, .5f, 0f), Vector2.right*direction, 0.5f);
                     if(hit.collider != null)
                     {
-                        print("turn around 1");
                         direction *= -1;
                         transform.Rotate(new Vector3(0, 180, 0));
                     } 
@@ -109,7 +106,6 @@ public class RockMan : MonoBehaviour
                         hit = Physics2D.Raycast(transform.position + new Vector3(0.6f * direction, -0.5f, 0f), Vector2.right * direction, 0.5f);
                         if (hit.collider != null)
                         {
-                            print(hit.collider.gameObject);
                             direction *= -1;
                             transform.Rotate(new Vector3(0, 180, 0));
                         }
@@ -120,7 +116,6 @@ public class RockMan : MonoBehaviour
             hit = Physics2D.Raycast(transform.position + new Vector3(0f, 1.01f, 0f), Vector2.up, 1.1f);
             if(hit.collider != null)
             {
-                print("turn around 3");
                 jump = false;
                 hit = Physics2D.Raycast(transform.position + new Vector3(0.6f * direction, -.5f, 0f), Vector2.right * direction, 0.5f);
                 if (hit.collider != null && (hit.collider.gameObject.name != "Player" || hit.collider.gameObject.name != "Player(Clone)"))
