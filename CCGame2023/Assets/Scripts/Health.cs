@@ -38,6 +38,7 @@ public class Health : MonoBehaviour
     }
 
     void Die() {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<KillCounter>().addTally(transform.position);
         Destroy(gameObject);
     }
 }
