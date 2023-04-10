@@ -38,7 +38,25 @@ public class LevelSelection : MonoBehaviour
                     using (StreamReader reader = new StreamReader(fileName))
                     {
                         string creatorName = reader.ReadLine();
-                        newPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = creatorName;
+                        newPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = "By: " + creatorName;
+                        string winCondition = reader.ReadLine();
+                        if(winCondition == "1")
+                        {
+                            winCondition = "Kill All";
+                        }
+                        else if(winCondition == "2")
+                        {
+                            winCondition = "Collect All";
+                        }
+                        else if (winCondition == "3")
+                        {
+                            winCondition = "Get To Exit";
+                        }
+                        else if (winCondition == "4")
+                        {
+                            winCondition = "None";
+                        }
+                        newPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = "Win Condition: " + winCondition;
                     }
                     
                         

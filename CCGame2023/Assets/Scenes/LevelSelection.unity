@@ -223,9 +223,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ea5ef06714b284c9df9d2211019487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPanel: {fileID: 574444604077245154, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
-    type: 3}
+  levelPanel: {fileID: 1378953136}
   canvas: {fileID: 1510815547}
+--- !u!1 &1378953136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 574444604077245154, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 574444604378619815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1510815543
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +403,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510815547}
     m_Modifications:
+    - target: {fileID: 93305414993113396, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+        type: 3}
+      propertyPath: m_Name
+      value: WinCondition
+      objectReference: {fileID: 0}
+    - target: {fileID: 574444602561796383, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 574444602561796383, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -58.4
+      objectReference: {fileID: 0}
     - target: {fileID: 574444604077245153, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
         type: 3}
       propertyPath: m_Pivot.x
@@ -441,7 +461,7 @@ PrefabInstance:
     - target: {fileID: 574444604077245153, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 88.235
       objectReference: {fileID: 0}
     - target: {fileID: 574444604077245153, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
         type: 3}
@@ -486,7 +506,7 @@ PrefabInstance:
     - target: {fileID: 574444604077245153, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -124.48157
+      value: -123.953
       objectReference: {fileID: 0}
     - target: {fileID: 574444604077245153, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
         type: 3}
@@ -507,6 +527,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003161658361795457, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -86.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235012308012153039, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Win Condition: Condition'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235012308012153039, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161d2aefd3d001d4ab3f8cfe2076d1fa, type: 3}

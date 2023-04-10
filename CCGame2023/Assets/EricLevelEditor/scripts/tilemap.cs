@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class tilemap : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class tilemap : MonoBehaviour
     public List<Button> allTileButtons = new List<Button>();
     [SerializeField] private Text levelNameText;
     [SerializeField] private Text creatorNameText;
+    [SerializeField] private Dropdown winCondition;
     [SerializeField] private string levelInformation;
     [SerializeField] private Tile xTile;
     [SerializeField] private Tile deleteTile;
@@ -248,7 +250,7 @@ public class tilemap : MonoBehaviour
 
         if(Input.GetKeyDown("p"))
         {
-            print(getTilemapInformation(columns, rows));
+            
         }
     }
 
@@ -445,7 +447,7 @@ public class tilemap : MonoBehaviour
         {
             string nameOfLevel = levelNameText.text;
             string nameOfCreator = creatorNameText.text;
-            if (nameOfLevel != "" && nameOfCreator != "")
+            if (nameOfLevel != "" && nameOfCreator != "" && winCondition.value != 0)
             {
                 if(allTileCurrentNumbers[5] == 1)
                 {
@@ -453,7 +455,7 @@ public class tilemap : MonoBehaviour
                 }
                 else GameObject.Find("Warning Text").GetComponent<Text>().text = "Please place down the character";
             }
-            else GameObject.Find("Warning Text").GetComponent<Text>().text = "Fill in both name of level and creator name";
+            else GameObject.Find("Warning Text").GetComponent<Text>().text = "Fill in both name of level and creator name, and select a win condition";
         }
     }
 
@@ -482,6 +484,7 @@ public class tilemap : MonoBehaviour
                 using (StreamWriter writer = new StreamWriter(stream))  
                 {  
                     writer.WriteLine(creatorName);
+                    writer.WriteLine(winCondition.value);
                     writer.WriteLine(columns);
                     writer.WriteLine(rows);
                     writer.WriteLine(getTilemapInformation(columns, rows));  

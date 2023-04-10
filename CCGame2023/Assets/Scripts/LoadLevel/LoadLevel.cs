@@ -14,7 +14,7 @@ public class LoadLevel : MonoBehaviour
     
     int columns;
     int rows;
-    string levelPath;
+    public string winCondition;
     public Tilemap tilemap1;
     private string levelInformation;
 
@@ -39,6 +39,7 @@ public class LoadLevel : MonoBehaviour
             using (StreamReader reader = new StreamReader(fileName))  
             {  
                 reader.ReadLine();
+                winCondition = reader.ReadLine();
                 columns = int.Parse(reader.ReadLine());
                 rows = int.Parse(reader.ReadLine());
                 levelInformation = reader.ReadLine();
