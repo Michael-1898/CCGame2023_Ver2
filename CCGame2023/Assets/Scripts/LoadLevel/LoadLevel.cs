@@ -17,6 +17,7 @@ public class LoadLevel : MonoBehaviour
     public string winCondition;
     public Tilemap tilemap1;
     private string levelInformation;
+    public List<GameObject> enemiesList = new List<GameObject>();
 
 
 
@@ -40,6 +41,22 @@ public class LoadLevel : MonoBehaviour
             {  
                 reader.ReadLine();
                 winCondition = reader.ReadLine();
+                if (winCondition == "1")
+                {
+                    winCondition = "Kill All";
+                }
+                else if (winCondition == "2")
+                {
+                    winCondition = "Collect All";
+                }
+                else if (winCondition == "3")
+                {
+                    winCondition = "Get To Exit";
+                }
+                else if (winCondition == "4")
+                {
+                    winCondition = "None";
+                }
                 columns = int.Parse(reader.ReadLine());
                 rows = int.Parse(reader.ReadLine());
                 levelInformation = reader.ReadLine();
@@ -63,7 +80,11 @@ public class LoadLevel : MonoBehaviour
                     if(tilemap.allTileGameObjects[l] != null)
                     {
                         tilemap1.SetTile(new Vector3Int(k % columns, Mathf.FloorToInt(k / columns), 0), null);
-                        Instantiate(tilemap.allTileGameObjects[l], new Vector3((k % columns) + 0.5f, Mathf.FloorToInt(k / columns) + 0.5f, 0), Quaternion.identity);
+                        GameObject currentEnemy = Instantiate(tilemap.allTileGameObjects[l], new Vector3((k % columns) + 0.5f, Mathf.FloorToInt(k / columns) + 0.5f, 0), Quaternion.identity);
+                        if(winCondition == "Kill All" && currentEnemy != GameObject.Find("Player(Clone)"))
+                        {
+                            enemiesList.Add(currentEnemy);
+                        }
                     }
                 }
             }
