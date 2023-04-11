@@ -690,10 +690,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 61da4b82c5dd01c43ace6bc827173465, type: 2}
   - {fileID: 11400000, guid: 84a03db2b9e323045a38e9e431679db3, type: 2}
   - {fileID: 11400000, guid: 5bc48fdb570fe6c479e4c6c8af928b5e, type: 2}
-  - {fileID: 11400000, guid: 5bc48fdb570fe6c479e4c6c8af928b5e, type: 2}
-  - {fileID: 11400000, guid: 5bc48fdb570fe6c479e4c6c8af928b5e, type: 2}
-  - {fileID: 11400000, guid: 5bc48fdb570fe6c479e4c6c8af928b5e, type: 2}
-  - {fileID: 11400000, guid: 5bc48fdb570fe6c479e4c6c8af928b5e, type: 2}
+  - {fileID: 11400000, guid: ac5142d98e4b9174a97dbbf97eb0abf3, type: 2}
+  - {fileID: 11400000, guid: 363e2e4aaa1270340a615e52c62f0867, type: 2}
+  - {fileID: 11400000, guid: fd4024de78ce9144aa0f0b820bf5d440, type: 2}
+  - {fileID: 11400000, guid: 43198ebaf1a706645b0278d542cb4fb9, type: 2}
   allTileCharacters:
   - a
   - b
@@ -739,10 +739,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 6601705622245595513, guid: 42a5d22393114bd46868544afe988a35, type: 3}
-  - {fileID: 6601705622245595513, guid: 42a5d22393114bd46868544afe988a35, type: 3}
-  - {fileID: 6601705622245595513, guid: 42a5d22393114bd46868544afe988a35, type: 3}
-  - {fileID: 6601705622245595513, guid: 42a5d22393114bd46868544afe988a35, type: 3}
-  - {fileID: 6601705622245595513, guid: 42a5d22393114bd46868544afe988a35, type: 3}
+  - {fileID: 7830055608519121096, guid: fef36c91e94f82c408ab4b8511e37278, type: 3}
+  - {fileID: 2117782339254914933, guid: c027940fa5aebde42907c8c607fc897d, type: 3}
+  - {fileID: 1001754325587228152, guid: 46a5bc3deeffd8f4c97c76acb88a263b, type: 3}
+  - {fileID: 8787759062885455357, guid: ebcacc6967ff5bd42bfe11b38a9848ad, type: 3}
   allTileSizes:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: 1, z: 0}
@@ -761,11 +761,11 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: 1, z: 0}
+  - {x: 4, y: 3, z: 0}
+  - {x: 6, y: 5, z: 0}
+  - {x: 3, y: 2, z: 0}
   - {x: 1, y: 1, z: 0}
-  - {x: 1, y: 1, z: 0}
-  - {x: 1, y: 1, z: 0}
-  - {x: 1, y: 1, z: 0}
-  allTileLimits: 00000000a0860100a0860100a0860100a086010001000000320000003200000032000000a0860100a0860100a0860100a0860100a0860100a0860100a08601006400000064000000640000006400000064000000
+  allTileLimits: 00000000a0860100a0860100a0860100a086010001000000320000003200000032000000a0860100a0860100a0860100a0860100a0860100a0860100a086010064000000050000000500000032000000e8030000
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
