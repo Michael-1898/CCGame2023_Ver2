@@ -4295,7 +4295,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Kill All Enemies
       m_Image: {fileID: 0}
-    - m_Text: Collect All Coins
+    - m_Text: Collect All Gems
       m_Image: {fileID: 0}
     - m_Text: None
       m_Image: {fileID: 0}

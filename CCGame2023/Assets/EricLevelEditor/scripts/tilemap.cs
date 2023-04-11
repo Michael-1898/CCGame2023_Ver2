@@ -449,7 +449,19 @@ public class tilemap : MonoBehaviour
             string nameOfCreator = creatorNameText.text;
             if (nameOfLevel != "" && nameOfCreator != "" && winCondition.value != 0)
             {
-                if(allTileCurrentNumbers[5] == 1)
+                if(winCondition.value == 2)
+                {
+                    if (allTileCurrentNumbers[16] > 0)
+                    {
+                        if(allTileCurrentNumbers[5] == 1)
+                        {
+                            saveLevel(nameOfLevel, nameOfCreator);
+                        }
+                        else GameObject.Find("Warning Text").GetComponent<Text>().text = "Please place down the character";
+                    }
+                    else GameObject.Find("Warning Text").GetComponent<Text>().text = "Add at least one gem";
+                }
+                else if (allTileCurrentNumbers[5] == 1)
                 {
                     saveLevel(nameOfLevel, nameOfCreator);
                 }

@@ -9,6 +9,7 @@ public class WinConditionArrow : MonoBehaviour
     List<GameObject> enemiesList = new List<GameObject>();
     List<GameObject> gemList = new List<GameObject>();
     SpriteRenderer sr;
+    bool turnedOn = false;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -31,12 +32,15 @@ public class WinConditionArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || turnedOn)
         {
-            print("UOAGFbOEAG");
             sr.enabled = true;
         }
         else sr.enabled = false;
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            turnedOn = !turnedOn;
+        }
         
         if(winCondition == "Kill All")
         {
