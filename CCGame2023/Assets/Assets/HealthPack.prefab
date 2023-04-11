@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a84fa8e3d4026843a169c3e0314d29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPacks: 3
+  maxPacks: 5
