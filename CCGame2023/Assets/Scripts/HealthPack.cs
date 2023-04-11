@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthPack : MonoBehaviour
 {
+    [SerializeField] int maxPacks;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class HealthPack : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if(col.gameObject.CompareTag("Player")) {
+        if(col.gameObject.CompareTag("Player") && col.gameObject.GetComponent<PlayerHealthPack>().currentPacks < maxPacks) {
             col.gameObject.GetComponent<PlayerHealthPack>().addPack(1);
             Destroy(gameObject);
         }
