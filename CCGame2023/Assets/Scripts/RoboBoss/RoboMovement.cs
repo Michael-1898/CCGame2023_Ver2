@@ -108,7 +108,7 @@ public class RoboMovement : MonoBehaviour
         }
 
         if(isMoving) {
-            rb.velocity = Vector2.right * moveSpeed * moveMult * (Time.deltaTime + 1);
+            rb.velocity = new Vector2(1 * moveSpeed * moveMult * (Time.deltaTime + 1), rb.velocity.y);
             
             if(!isChasing) {
                 timeMoving += Time.deltaTime;
