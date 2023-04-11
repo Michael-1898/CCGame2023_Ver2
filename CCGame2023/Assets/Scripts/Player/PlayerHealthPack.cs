@@ -32,16 +32,14 @@ public class PlayerHealthPack : MonoBehaviour
             } else {
                 packs[i].enabled = false;
             }
-
-            // if(i < maxPacks) {
-            //     packs[i].enabled = true;
-            // } else {
-            //     packs[i].enabled = false;
-            // }
         }
     }
 
     public void addPack(int numPacks) {
         currentPacks += numPacks;
+    }
+
+    public void subPack(int numPacks) {
+        currentPacks -= numPacks;
     }
 }

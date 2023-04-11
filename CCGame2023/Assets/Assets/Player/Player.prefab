@@ -356,6 +356,8 @@ MonoBehaviour:
   healthChance: 11
   healthPack: {fileID: 8787759062885455357, guid: ebcacc6967ff5bd42bfe11b38a9848ad,
     type: 3}
+  healCooldown: 1
+  maxHealth: 7
 --- !u!95 &3624078812657250685
 Animator:
   serializedVersion: 3
