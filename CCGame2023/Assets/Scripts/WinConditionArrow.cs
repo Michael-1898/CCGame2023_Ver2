@@ -7,6 +7,7 @@ public class WinConditionArrow : MonoBehaviour
     // Start is called before the first frame update
     string winCondition;
     List<GameObject> enemiesList = new List<GameObject>();
+    List<GameObject> gemList = new List<GameObject>();
     SpriteRenderer sr;
     void Start()
     {
@@ -20,11 +21,7 @@ public class WinConditionArrow : MonoBehaviour
             }
             if (winCondition == "Collect All")
             {
-                print("Collect All");
-            }
-            if (winCondition == "Get To Exit")
-            {
-                print("Get To Exit");
+                gemList = Camera.main.GetComponent<LoadLevel>().gemList;
             }
 
         }
@@ -80,7 +77,38 @@ public class WinConditionArrow : MonoBehaviour
         }
         if (winCondition == "Collect All")
         {
-            print("Collect All");
+            GameObject closestGem = null;
+            float closestGemDistance = Mathf.Infinity;
+            for (int i = 0; i < gemList.Count; i++)
+            {
+                if (gemList[i] == null)
+                {
+                    gemList.RemoveAt(i);
+                    i--;
+                }
+                else
+                {
+                    if (Vector3.Distance(transform.position, gemList[i].transform.position) < closestGemDistance)
+                    {
+                        closestGemDistance = Vector3.Distance(transform.position, gemList[i].transform.position);
+                        closestGem = gemList[i];
+                    }
+                    if (gemList[i].transform.position.y < -20f)
+                    {
+                        Destroy(gemList[i]);
+                    }
+                }
+
+            }
+            if (gemList.Count == 0)
+            {
+                Victory();
+            }
+            Vector3 pointTowardsEnemy = closestGem.transform.position - transform.position;
+            float angle = Mathf.Atan2(pointTowardsEnemy.y, pointTowardsEnemy.x) * Mathf.Rad2Deg - 90;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 10000);
+            print(closestGem);
         }
         if (winCondition == "Get To Exit")
         {
@@ -90,6 +118,7 @@ public class WinConditionArrow : MonoBehaviour
 
     void Victory()
     {
+        GameObject.Find("VictoryText").transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + 4.5f, 0f);
         Destroy(gameObject);
         print("YOU WIN");
     }
