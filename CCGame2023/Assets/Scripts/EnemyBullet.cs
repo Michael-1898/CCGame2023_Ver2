@@ -29,7 +29,11 @@ public class EnemyBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.CompareTag("Player")) {
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(bulletDmg);
+            }
         }
         Destroy(gameObject);
     }

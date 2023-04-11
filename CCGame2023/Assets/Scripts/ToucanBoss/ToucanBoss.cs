@@ -191,7 +191,13 @@ public class ToucanBoss : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.CompareTag("Player") && !playerHit) {
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            //deal damage
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(enemyDmg);
+            }
+            
             playerHit = true;
 
             //set kb time for player

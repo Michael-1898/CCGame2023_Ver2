@@ -31,7 +31,12 @@ public class Bomb3Trigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.CompareTag("Player") && !hit) {   //if collided with player
             //deal damage
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(bombDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(bombDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(bombDmg);
+            }
+
             dmgTimer = 0;
             hit = true;
         }

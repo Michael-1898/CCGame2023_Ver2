@@ -29,7 +29,13 @@ public class KillCounter : MonoBehaviour
         //if presses 'c', restore health and lose a health pack
         if(Input.GetKeyDown("c") && !healing && GetComponent<PlayerHealthPack>().currentPacks > 0 && GetComponent<PlayerHealth>().currentHealth < maxHealth) {
             GetComponent<PlayerHealthPack>().subPack(1);
-            GetComponent<PlayerHealth>().currentHealth = maxHealth;
+            if(GetComponent<PlayerHealth>().enabled == true) {
+                GetComponent<PlayerHealth>().currentHealth = maxHealth;
+            } else {
+                GetComponent<PlyrHpMod>().currentHealth = maxHealth;
+                PlayerPrefs.SetInt("currentHealth", maxHealth);
+            }
+            
             healing = true;
         }
 

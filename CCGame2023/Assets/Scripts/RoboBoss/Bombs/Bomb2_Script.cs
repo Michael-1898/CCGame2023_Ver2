@@ -27,7 +27,11 @@ public class Bomb2_Script : MonoBehaviour
             Instantiate(explosionFX, transform.position, Quaternion.identity); //instantiate particle effect
             Collider2D hitObject = Physics2D.OverlapCircle(transform.position, explosionRadius, playerLayer);
             if(hitObject != null && !hitObject.Equals(null)) {
-                hitObject.GetComponent<PlayerHealth>().TakeDamage(bombDmg);
+                if(hitObject.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                    hitObject.gameObject.GetComponent<PlayerHealth>().TakeDamage(bombDmg);
+                } else {
+                    hitObject.gameObject.GetComponent<PlyrHpMod>().TakeDamage(bombDmg);
+                }
             }
             Destroy(gameObject);
         }

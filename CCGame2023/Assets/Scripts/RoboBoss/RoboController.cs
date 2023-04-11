@@ -238,7 +238,11 @@ public class RoboController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.CompareTag("Player") && col.gameObject.GetComponent<MJB_PlayerMove>().kbCurrentTime <= 0) {   //if collided with player
             //deal damage
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(enemyDmg);
+            }
 
             //set kb time for player
             col.gameObject.GetComponent<MJB_PlayerMove>().kbCurrentTime = col.gameObject.GetComponent<MJB_PlayerMove>().kbTotalTime;

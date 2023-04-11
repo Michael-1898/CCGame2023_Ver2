@@ -21,6 +21,10 @@ public class TransitionZone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.CompareTag("Player")) {
+            if(nextScene == 6) {
+                PlayerPrefs.SetInt("currentHealth", 7);
+                PlayerPrefs.SetInt("currentLava", 5);
+            }
             SceneManager.LoadScene(nextScene);
         }
     }

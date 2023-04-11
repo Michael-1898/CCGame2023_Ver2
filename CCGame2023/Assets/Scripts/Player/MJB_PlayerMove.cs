@@ -220,7 +220,11 @@ public class MJB_PlayerMove : MonoBehaviour
         //code to check if player fell off map and then teleports them
         if (transform.position.y < -10f)
         {
-            GetComponent<PlayerHealth>().TakeDamage(1);
+            if(GetComponent<PlayerHealth>().enabled == true) {
+                GetComponent<PlayerHealth>().TakeDamage(1);
+            } else {
+                GetComponent<PlyrHpMod>().TakeDamage(1);
+            }
             GetComponent<PlayerHealth>().invincible = true;
             groundedTimer = 0f;
             transform.position = lastGroundedPosition;

@@ -113,7 +113,11 @@ public class Enemy3Controller : MonoBehaviour
         
         if(col.gameObject.CompareTag("Player")) {   //if collided with player
             //deal damage
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(enemyDmg);
+            }
 
             //set kb time for player
             col.gameObject.GetComponent<MJB_PlayerMove>().kbCurrentTime = col.gameObject.GetComponent<MJB_PlayerMove>().kbTotalTime;

@@ -83,7 +83,11 @@ public class Missile : MonoBehaviour
         Instantiate(explosionFX, transform.position, Quaternion.identity); //instantiate particle effect
 
         if(col.gameObject.CompareTag("Player")) {
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(missileDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(missileDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(missileDmg);
+            }
         }
 
         if(!col.gameObject.CompareTag("Missile")) {

@@ -30,6 +30,8 @@ public class RoboMovement : MonoBehaviour
     [SerializeField] float circleRadius;
     [SerializeField] GameObject edgeCheckL;
     [SerializeField] GameObject edgeCheckR;
+    [SerializeField] GameObject wallCheckL;
+    [SerializeField] GameObject wallCheckR;
     [SerializeField] LayerMask groundLayer;
     bool edged;
 
@@ -53,7 +55,7 @@ public class RoboMovement : MonoBehaviour
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
 
         //if reaches edge move in other direction
-        if(edged && Physics2D.OverlapCircle(edgeCheckL.transform.position, circleRadius, groundLayer) == false) {
+        if(edged && Physics2D.OverlapCircle(edgeCheckL.transform.position, circleRadius, groundLayer) == false || Physics2D.OverlapCircle(wallCheckL.transform.position, circleRadius, groundLayer) == true) {
             edged = false;
             if(moveSpeed < 0) {
                 moveSpeed *= -1;
@@ -62,7 +64,7 @@ public class RoboMovement : MonoBehaviour
             movementDuration = 0.5f;
             isMoving = true;
 
-        } else if(edged && Physics2D.OverlapCircle(edgeCheckR.transform.position, circleRadius, groundLayer) == false) {
+        } else if(edged && Physics2D.OverlapCircle(edgeCheckR.transform.position, circleRadius, groundLayer) == false || Physics2D.OverlapCircle(wallCheckR.transform.position, circleRadius, groundLayer) == true) {
             edged = false;
             if(moveSpeed > 0) {
                 moveSpeed *= -1;
@@ -71,7 +73,7 @@ public class RoboMovement : MonoBehaviour
             movementDuration = 0.5f;
             isMoving = true;
 
-        } else if(!edged && Physics2D.OverlapCircle(edgeCheckL.transform.position, circleRadius, groundLayer) == true && Physics2D.OverlapCircle(edgeCheckR.transform.position, circleRadius, groundLayer) == true) {
+        } else if(!edged && Physics2D.OverlapCircle(edgeCheckL.transform.position, circleRadius, groundLayer) == true && Physics2D.OverlapCircle(edgeCheckR.transform.position, circleRadius, groundLayer) == true && Physics2D.OverlapCircle(wallCheckL.transform.position, circleRadius, groundLayer) == false && Physics2D.OverlapCircle(wallCheckR.transform.position, circleRadius, groundLayer) == false) {
             edged = true;
         }
 

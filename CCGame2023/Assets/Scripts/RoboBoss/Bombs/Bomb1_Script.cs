@@ -26,7 +26,11 @@ public class Bomb1_Script : MonoBehaviour
 
         Collider2D hitObject = Physics2D.OverlapCircle(transform.position, explosionRadius, playerLayer);
         if(hitObject != null && !hitObject.Equals(null)) {
-            hitObject.GetComponent<PlayerHealth>().TakeDamage(bombDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(bombDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(bombDmg);
+            }
         }
         Destroy(gameObject);
     }

@@ -200,3 +200,4 @@ MonoBehaviour:
   explosionFX: {fileID: 3200751607183475805, guid: 304a40ebaf558894fb57456b945aa5bf,
     type: 3}
   triggerCollider: {fileID: 0}
+  bombDmg: 1

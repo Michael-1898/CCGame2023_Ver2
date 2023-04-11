@@ -47,7 +47,12 @@ public class Cocona : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.CompareTag("Player")) {   //if collided with player
             //deal damage
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(dmg);
+            }
+
             Destroy(this.gameObject);
         }
 

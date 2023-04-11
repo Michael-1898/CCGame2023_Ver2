@@ -22,7 +22,11 @@ public class LogBamboo : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.CompareTag("Player")) {   //if collided with player
             //deal damage
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(dmg);
+            }
 
             //set kb time for player
             col.gameObject.GetComponent<MJB_PlayerMove>().kbCurrentTime = col.gameObject.GetComponent<MJB_PlayerMove>().kbTotalTime;

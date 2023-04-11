@@ -145,7 +145,12 @@ public class ZquitController : MonoBehaviour
             transform.Rotate(new Vector3(0, 0, -20));
         }
         if(col.gameObject.CompareTag("Player") && !playerHit) {
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            if(col.gameObject.GetComponent<PlayerHealth>().enabled == true) {
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyDmg);
+            } else {
+                col.gameObject.GetComponent<PlyrHpMod>().TakeDamage(enemyDmg);
+            }
+
             playerHit = true;
         }
     }

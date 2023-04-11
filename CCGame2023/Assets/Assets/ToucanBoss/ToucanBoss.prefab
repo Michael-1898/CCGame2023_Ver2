@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phases: 0500000002000000
   stunTime: 4
-  maxDamage: 1
+  maxDamage: 2
   thrust: 17
 --- !u!95 &7830055608519121097
 Animator:

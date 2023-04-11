@@ -37,9 +37,15 @@ public class PlayerHealthPack : MonoBehaviour
 
     public void addPack(int numPacks) {
         currentPacks += numPacks;
+        if(GetComponent<PlayerHealth>().enabled == false) {
+            PlayerPrefs.SetInt("currentLava", currentPacks);
+        }
     }
 
     public void subPack(int numPacks) {
         currentPacks -= numPacks;
+        if(GetComponent<PlayerHealth>().enabled == false) {
+            PlayerPrefs.SetInt("currentLava", currentPacks);
+        }
     }
 }
