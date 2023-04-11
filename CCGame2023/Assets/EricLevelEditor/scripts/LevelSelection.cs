@@ -50,10 +50,6 @@ public class LevelSelection : MonoBehaviour
                         }
                         else if (winCondition == "3")
                         {
-                            winCondition = "Get To Exit";
-                        }
-                        else if (winCondition == "4")
-                        {
                             winCondition = "None";
                         }
                         newPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = "Win Condition: " + winCondition;

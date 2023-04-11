@@ -18,6 +18,7 @@ public class LoadLevel : MonoBehaviour
     public Tilemap tilemap1;
     private string levelInformation;
     public List<GameObject> enemiesList = new List<GameObject>();
+    public List<GameObject> gemList = new List<GameObject>();
 
 
 
@@ -51,10 +52,6 @@ public class LoadLevel : MonoBehaviour
                 }
                 else if (winCondition == "3")
                 {
-                    winCondition = "Get To Exit";
-                }
-                else if (winCondition == "4")
-                {
                     winCondition = "None";
                 }
                 columns = int.Parse(reader.ReadLine());
@@ -84,6 +81,10 @@ public class LoadLevel : MonoBehaviour
                         if(winCondition == "Kill All" && currentEnemy != GameObject.Find("Player(Clone)"))
                         {
                             enemiesList.Add(currentEnemy);
+                        }
+                        if(winCondition == "Collect All" && l == 16)
+                        {
+                            gemList.Add(currentEnemy);
                         }
                     }
                 }
