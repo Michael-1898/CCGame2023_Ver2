@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4113477947695588480}
   - component: {fileID: 617976027286933556}
   m_Layer: 9
-  m_Name: Blop
+  m_Name: RockMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kbTime: 1
-  enemyKnockback: 16
+  enemyKnockback: 12
   enemyDmg: 1
 --- !u!61 &4113477947695588487
 BoxCollider2D:

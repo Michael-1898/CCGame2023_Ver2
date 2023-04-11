@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoboBossArena.unity
     guid: 6d90ade0789402c40b4079e72199eb10
+  - enabled: 1
+    path: Assets/Scenes/MobPitLeft.unity
+    guid: 8bb22a22451b40a4f9e8043664387f71
+  - enabled: 1
+    path: Assets/Scenes/MobPitRight.unity
+    guid: 394aef09cc3ca7147a8837d1670b6510
   m_configObjects: {}

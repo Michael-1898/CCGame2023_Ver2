@@ -101,15 +101,15 @@ public class RoboController : MonoBehaviour
             }
         }
 
-        if(currentPhase == 0) {
+        if(currentPhase == 0 && aggroTaken) {
             Attk1();
         }
 
-        if(currentPhase == 1) {
+        if(currentPhase == 1 && aggroTaken) {
             Attk2();
         }
 
-        if(currentPhase == 2) {
+        if(currentPhase == 2 && aggroTaken) {
             Attk3();
         }
     }

@@ -21,6 +21,8 @@ public class PlayerHealthPack : MonoBehaviour
         packs[0] = GameObject.Find("Canvas").transform.GetChild(1).GetChild(0).GetComponent<Image>();
         packs[1] = GameObject.Find("Canvas").transform.GetChild(1).GetChild(1).GetComponent<Image>();
         packs[2] = GameObject.Find("Canvas").transform.GetChild(1).GetChild(2).GetComponent<Image>();
+        packs[3] = GameObject.Find("Canvas").transform.GetChild(1).GetChild(3).GetComponent<Image>();
+        packs[4] = GameObject.Find("Canvas").transform.GetChild(1).GetChild(4).GetComponent<Image>();
     }
 
     // Update is called once per frame
