@@ -16,7 +16,7 @@ public class RobotCP : MonoBehaviour
     void Update()
     {
         if(GetComponent<Health>().currentHealth <= 0) {
-            PlayerPrefs.SetInt("toucan", 1);
+            PlayerPrefs.SetInt("robot", 1);
         }
     }
 }
