@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 1001754325587228150}
   - component: {fileID: 1001754325587228153}
   - component: {fileID: 1001754325587228146}
+  - component: {fileID: 2420137050974181842}
+  - component: {fileID: 92561425028678376}
+  - component: {fileID: 2120393689841738441}
   - component: {fileID: 3051512691558216619}
   m_Layer: 9
   m_Name: Monitor
@@ -146,6 +149,42 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   hit: 0
+--- !u!114 &2420137050974181842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001754325587228152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ff2d34bb025174dbb90d1e037886bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &92561425028678376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001754325587228152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf694c7989902b41a978f7b5f0686fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2120393689841738441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001754325587228152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79cb785a72df2542a88f83454cac5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &3051512691558216619
 CircleCollider2D:
   m_ObjectHideFlags: 0

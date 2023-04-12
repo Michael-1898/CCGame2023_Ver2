@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 2117782339254914939}
   - component: {fileID: 2117782339254914938}
   - component: {fileID: 481572837448521986}
+  - component: {fileID: 2906222748588030594}
   m_Layer: 9
   m_Name: RoboBoss
   m_TagString: LargeBoss
@@ -620,16 +621,6 @@ CompositeCollider2D:
         Y: 8223193
       - X: -14362898
         Y: -7829327
-  - m_Collider: {fileID: 2117782339899710217}
-    m_ColliderPaths:
-    - - X: 19544351
-        Y: -16656344
-      - X: 19544351
-        Y: -6722849
-      - X: -19672808
-        Y: -6723142
-      - X: -19672515
-        Y: -16656344
   - m_Collider: {fileID: 2117782338809701743}
     m_ColliderPaths:
     - - X: 2947422
@@ -670,11 +661,26 @@ CompositeCollider2D:
         Y: -5402263
       - X: 31858296
         Y: -3870492
+  - m_Collider: {fileID: 7010113018312895445}
+    m_ColliderPaths:
+    - - X: -13590879
+        Y: -6815147
+      - X: -19605512
+        Y: -11534631
+      - X: -14943291
+        Y: -16539447
+      - X: 14448296
+        Y: -16530042
+      - X: 19650264
+        Y: -11459165
+      - X: 13710151
+        Y: -6813252
   m_CompositePaths:
     m_Paths:
-    - - {x: 1.9544058, y: -1.6656344}
-      - {x: 1.9544058, y: -0.6722849}
-      - {x: 1.4241781, y: -0.6722595}
+    - - {x: -1.4943368, y: -1.6539364}
+      - {x: 1.4448371, y: -1.6529968}
+      - {x: 1.9649992, y: -1.1458954}
+      - {x: 1.4241781, y: -0.7228924}
       - {x: 1.4242076, y: -0.3532201}
       - {x: 2.0023732, y: -0.3532416}
       - {x: 2.0466995, y: -0.5402228}
@@ -693,9 +699,8 @@ CompositeCollider2D:
       - {x: -0.2883586, y: 1.4580263}
       - {x: -0.2883673, y: 0.82233113}
       - {x: -1.4363191, y: 0.82229}
-      - {x: -1.4363213, y: -0.67231023}
-      - {x: -1.9672809, y: -0.6723435}
-      - {x: -1.9672222, y: -1.6656344}
+      - {x: -1.4363006, y: -0.74210113}
+      - {x: -1.9605292, y: -1.1534868}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!114 &2117782339254914939
@@ -790,6 +795,18 @@ MonoBehaviour:
   maxHealth: 15
   currentHealth: 0
   hit: 0
+--- !u!114 &2906222748588030594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117782339254914933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6550d319548d44d99cbe969cd72156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2117782339783229856
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117782339899710215}
   - component: {fileID: 2117782339899710216}
-  - component: {fileID: 2117782339899710217}
+  - component: {fileID: 7010113018312895445}
   m_Layer: 9
   m_Name: Tracks
   m_TagString: Untagged
@@ -985,8 +1002,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2117782339899710217
-BoxCollider2D:
+--- !u!60 &7010113018312895445
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1008,9 +1025,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 12.24, y: 3.1003027}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.2217937, y: 1.5213444}
+      - {x: -6.098996, y: 0.048365593}
+      - {x: -4.6438894, y: -1.5136673}
+      - {x: 4.5293994, y: -1.5107318}
+      - {x: 6.1529646, y: 0.071918905}
+      - {x: 4.29902, y: 1.5219359}
 --- !u!1 &2117782340266296533
 GameObject:
   m_ObjectHideFlags: 0

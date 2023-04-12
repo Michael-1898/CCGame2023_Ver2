@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToucanCP : MonoBehaviour
+public class RobotCP : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt("toucan") == 1) {
+        if(PlayerPrefs.GetInt("robot") == 1) {
             Destroy(gameObject);
         }
     }

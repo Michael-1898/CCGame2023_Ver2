@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToucanCP : MonoBehaviour
+public class RightCPBoss : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt("toucan") == 1) {
+        if(PlayerPrefs.GetInt("right") == 1) {
             Destroy(gameObject);
         }
     }
@@ -16,7 +16,7 @@ public class ToucanCP : MonoBehaviour
     void Update()
     {
         if(GetComponent<Health>().currentHealth <= 0) {
-            PlayerPrefs.SetInt("toucan", 1);
+            PlayerPrefs.SetInt("right", 1);
         }
     }
 }

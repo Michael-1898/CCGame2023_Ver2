@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8787759062885455359}
   - component: {fileID: 8787759062885455358}
   - component: {fileID: 8787759062885455354}
+  - component: {fileID: 7261265377724365530}
+  - component: {fileID: 3006503982143780500}
   m_Layer: 0
   m_Name: HealthPack
   m_TagString: Untagged
@@ -134,3 +136,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPacks: 5
+--- !u!114 &7261265377724365530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787759062885455357}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ff2d34bb025174dbb90d1e037886bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3006503982143780500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787759062885455357}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf694c7989902b41a978f7b5f0686fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

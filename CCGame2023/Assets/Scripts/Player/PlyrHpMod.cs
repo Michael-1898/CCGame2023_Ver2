@@ -83,6 +83,8 @@ public class PlyrHpMod : MonoBehaviour
 
     void Die() {
         //Destroy(gameObject);
+        PlayerPrefs.SetInt("currentHealth", maxHealth);
+        PlayerPrefs.SetInt("currentLava", 2);
         SceneManager.LoadScene("Hub");
     }
 }

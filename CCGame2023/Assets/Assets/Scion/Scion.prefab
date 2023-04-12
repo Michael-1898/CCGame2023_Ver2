@@ -74,6 +74,10 @@ GameObject:
   - component: {fileID: 2401932322914695362}
   - component: {fileID: 2401932322914695363}
   - component: {fileID: 2401932322914695364}
+  - component: {fileID: 5855278716394276384}
+  - component: {fileID: 787336212384249331}
+  - component: {fileID: 1660958123939399603}
+  - component: {fileID: 998594282566237314}
   - component: {fileID: 1656460794248147756}
   m_Layer: 9
   m_Name: Scion
@@ -237,6 +241,58 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   hit: 0
+--- !u!114 &5855278716394276384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401932322914695365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ff2d34bb025174dbb90d1e037886bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &787336212384249331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401932322914695365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf694c7989902b41a978f7b5f0686fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1660958123939399603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401932322914695365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c401efc03f1ed40b2084a9ef635d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &998594282566237314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401932322914695365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9302ab35e94ec4ea3f8b2f0d95e3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missile: {fileID: 1900729784782821048, guid: 8d35e95f38283384b9e18b469ed3a109, type: 3}
+  loadCooldown: 1.2
+  missileCooldown: 2.5
+  missileSpeed: 7
 --- !u!95 &1656460794248147756
 Animator:
   serializedVersion: 3

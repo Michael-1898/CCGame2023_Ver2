@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6519079917839090799}
   - component: {fileID: 1103069420009346748}
   - component: {fileID: 6452145422984843125}
+  - component: {fileID: 2511722869479649599}
   - component: {fileID: 3624078812657250685}
   m_Layer: 0
   m_Name: Player
@@ -339,7 +340,14 @@ MonoBehaviour:
   hit: 0
   invincible: 0
   iFrameTime: 0.5
-  hearts: []
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fullHeart: {fileID: 21300000, guid: c5d7c46a9007bbd49987e849b6a7356b, type: 3}
   emptyHeart: {fileID: 21300000, guid: 54951a01b34f8fc498b1be9c7296df23, type: 3}
 --- !u!114 &1103069420009346748
@@ -375,12 +383,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac334009243308140aeee7dd7160f8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTally: 10
-  healthChance: 11
+  maxTally: 9
+  healthChance: 12
   healthPack: {fileID: 8787759062885455357, guid: ebcacc6967ff5bd42bfe11b38a9848ad,
     type: 3}
   healCooldown: 1
   maxHealth: 7
+--- !u!114 &2511722869479649599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624078812657250628}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6248b43c66ae6544a866b9fab82a6383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3624078812657250685
 Animator:
   serializedVersion: 3

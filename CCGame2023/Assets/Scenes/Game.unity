@@ -25078,6 +25078,11 @@ PrefabInstance:
       propertyPath: packs.Array.data[4]
       value: 
       objectReference: {fileID: 1193103722}
+    - target: {fileID: 2511722869479649599, guid: e2ea95c4ae3258e43a6b6932854c948f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3624078812657250628, guid: e2ea95c4ae3258e43a6b6932854c948f,
         type: 3}
       propertyPath: m_Name

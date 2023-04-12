@@ -220,6 +220,10 @@ public class RoboController : MonoBehaviour
     }
 
     void Attk3() { //missile shooting
+        if(anim.GetBool("isMoving") == true) {
+            anim.SetBool("isMoving", false);
+        }
+
         if(GetComponent<RoboMovement>().enabled == true) {
             GetComponent<RoboMovement>().enabled = false;
         }
