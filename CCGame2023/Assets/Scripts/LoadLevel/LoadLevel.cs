@@ -78,7 +78,7 @@ public class LoadLevel : MonoBehaviour
                     {
                         tilemap1.SetTile(new Vector3Int(k % columns, Mathf.FloorToInt(k / columns), 0), null);
                         GameObject currentEnemy = Instantiate(tilemap.allTileGameObjects[l], new Vector3((k % columns) + 0.5f, Mathf.FloorToInt(k / columns) + 0.5f, 0), Quaternion.identity);
-                        if(winCondition == "Kill All" && currentEnemy != GameObject.Find("Player(Clone)"))
+                        if(winCondition == "Kill All" && currentEnemy != GameObject.Find("Player(Clone)") && l != 20 && l != 16)
                         {
                             enemiesList.Add(currentEnemy);
                         }
