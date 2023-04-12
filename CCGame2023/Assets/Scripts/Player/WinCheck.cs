@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class WinCheck : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
         //check all player prefs
         if(PlayerPrefs.GetInt("toucan") == 1 && PlayerPrefs.GetInt("robot") == 1 && PlayerPrefs.GetInt("left") == 1 && PlayerPrefs.GetInt("right") == 1) {
-            
+            GameObject.Find("WinOverlay").SetActive(true);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(PlayerPrefs.GetInt("toucan") != 1 || PlayerPrefs.GetInt("robot") != 1 || PlayerPrefs.GetInt("left") != 1 || PlayerPrefs.GetInt("right") != 1 && GameObject.Find("WinOverlay").active) {
+            GameObject.Find("WinOverlay").SetActive(false);
+        }
     }
 }

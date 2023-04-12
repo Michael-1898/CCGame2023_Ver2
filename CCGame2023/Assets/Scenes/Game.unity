@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1054,8 +1054,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -467.98, y: -196.63016}
-  m_SizeDelta: {x: 232.3294, y: 47.29132}
+  m_AnchoredPosition: {x: -467.98, y: -196.813}
+  m_SizeDelta: {x: 232.3294, y: 59.011696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &828958111
 MonoBehaviour:
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1515,7 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2474,7 +2474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The 'Esc' key will bring you back to the main menu.
+  m_Text: The 'Esc' key will bring you back to the main menu (will reset progress).
 --- !u!222 &1646582184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24775,7 +24775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

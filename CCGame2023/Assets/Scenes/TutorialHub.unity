@@ -2064,8 +2064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -167.2}
-  m_SizeDelta: {x: 366.05576, y: 138.473}
+  m_AnchoredPosition: {x: 0, y: -166.98}
+  m_SizeDelta: {x: 366.0552, y: 170.88783}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284063174
 MonoBehaviour:
@@ -2123,7 +2123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.38039216}
+  m_Color: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 0.6431373}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -46493,7 +46493,10 @@ MonoBehaviour:
     through each tunnel.
 
 
-    Defeat the challenges behind each tunnel.'
+    Defeat the challenges behind each tunnel.
+
+    Return
+    to the Hub by going back through the tunnels.'
 --- !u!222 &1949753054
 CanvasRenderer:
   m_ObjectHideFlags: 0
