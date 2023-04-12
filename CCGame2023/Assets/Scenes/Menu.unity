@@ -928,6 +928,7 @@ RectTransform:
   - {fileID: 676685409}
   - {fileID: 1289389012}
   - {fileID: 1717382191}
+  - {fileID: 1212953901}
   - {fileID: 966927700}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1400,7 +1401,7 @@ GameObject:
   - component: {fileID: 966927702}
   - component: {fileID: 966927701}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,7 +1419,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 660738433}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1457,7 +1458,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Petra Skopos
+  m_Text: Stoneclad
 --- !u!222 &966927702
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1613,7 +1614,7 @@ GameObject:
   - component: {fileID: 1212953903}
   - component: {fileID: 1212953902}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TitleBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,14 +1629,14 @@ RectTransform:
   m_GameObject: {fileID: 1212953900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999741, y: 0.9999741, z: 0.9999741}
+  m_LocalScale: {x: 1.0000384, y: 1.0000384, z: 1.0000384}
   m_Children: []
-  m_Father: {fileID: 1717382191}
-  m_RootOrder: 1
+  m_Father: {fileID: 660738433}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.9998711, y: 371.17612}
+  m_AnchoredPosition: {x: -1.9999998, y: 176.00002}
   m_SizeDelta: {x: 923.0034, y: 173.54312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1212953902
@@ -1670,7 +1671,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Petra Skopos
+  m_Text: 'Stoneclad
+
+'
 --- !u!222 &1212953903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2353,7 +2356,6 @@ RectTransform:
   m_LocalScale: {x: 1.0000644, y: 1.0000644, z: 1.0000644}
   m_Children:
   - {fileID: 1460211725}
-  - {fileID: 1212953901}
   m_Father: {fileID: 660738433}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

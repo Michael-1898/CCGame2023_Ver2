@@ -9,7 +9,7 @@ public class WinCheck : MonoBehaviour
     {
         //check all player prefs
         if(PlayerPrefs.GetInt("toucan") == 1 && PlayerPrefs.GetInt("robot") == 1 && PlayerPrefs.GetInt("left") == 1 && PlayerPrefs.GetInt("right") == 1) {
-            print("win");
+            
         }
     }
 
