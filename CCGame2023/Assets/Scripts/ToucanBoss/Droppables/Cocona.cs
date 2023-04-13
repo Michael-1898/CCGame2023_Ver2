@@ -21,7 +21,7 @@ public class Cocona : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
+        Player = GameObject.FindWithTag("Player");
         playerPos = Player.transform.position;
 
         timer = 0;
