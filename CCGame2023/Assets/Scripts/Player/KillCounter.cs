@@ -15,6 +15,7 @@ public class KillCounter : MonoBehaviour
     float healTimer;
     [SerializeField] float healCooldown;
     [SerializeField] int maxHealth;
+    [SerializeField] GameObject healthFX;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class KillCounter : MonoBehaviour
     {
         //if presses 'c', restore health and lose a health pack
         if(Input.GetKeyDown("c") && !healing && GetComponent<PlayerHealthPack>().currentPacks > 0 && GetComponent<PlayerHealth>().currentHealth < maxHealth) {
+            Instantiate(healthFX, new Vector2(transform.position.x, transform.position.y + 0.9f), Quaternion.identity);
+
             GetComponent<PlayerHealthPack>().subPack(1);
             if(GetComponent<PlayerHealth>().enabled == true) {
                 GetComponent<PlayerHealth>().currentHealth = maxHealth;

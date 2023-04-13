@@ -390,6 +390,7 @@ MonoBehaviour:
     type: 3}
   healCooldown: 1
   maxHealth: 7
+  healthFX: {fileID: 257643301691723480, guid: 458ded2b7ce66a74c9a3e5bea38d7472, type: 3}
 --- !u!114 &2511722869479649599
 MonoBehaviour:
   m_ObjectHideFlags: 0
