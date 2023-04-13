@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
+    [SerializeField] GameObject gemFX;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class Gem : MonoBehaviour
     {
         if(col.gameObject.name == "Player" || col.gameObject.name == "Player(Clone)")
         {
+            Instantiate(gemFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

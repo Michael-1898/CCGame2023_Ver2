@@ -29,7 +29,7 @@ public class KillCounter : MonoBehaviour
     {
         //if presses 'c', restore health and lose a health pack
         if(Input.GetKeyDown("c") && !healing && GetComponent<PlayerHealthPack>().currentPacks > 0 && GetComponent<PlayerHealth>().currentHealth < maxHealth) {
-            Instantiate(healthFX, new Vector2(transform.position.x, transform.position.y + 0.9f), Quaternion.identity);
+            Instantiate(healthFX, new Vector2(transform.position.x, transform.position.y + 0.92f), Quaternion.identity);
 
             GetComponent<PlayerHealthPack>().subPack(1);
             if(GetComponent<PlayerHealth>().enabled == true) {

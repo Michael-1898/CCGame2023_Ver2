@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e9a0e29695ab54f810f9343d8e29e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemFX: {fileID: 1238621281630611368, guid: a42700ae8e5710243ad256ac49552271, type: 3}
 --- !u!61 &451296563272628162
 BoxCollider2D:
   m_ObjectHideFlags: 0

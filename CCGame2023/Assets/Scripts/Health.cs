@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public bool hit;
     int once;
+    [SerializeField] GameObject deathFX;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class Health : MonoBehaviour
 
     void Die() {
         GameObject.FindGameObjectWithTag("Player").GetComponent<KillCounter>().addTally(transform.position);
+        Instantiate(deathFX, transform.position, Quaternion.identity);
         Destroy(gameObject, 0.1f);
     }
 }

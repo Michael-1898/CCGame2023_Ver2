@@ -241,6 +241,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   hit: 0
+  deathFX: {fileID: 1728708501231623498, guid: 987c6b561f6cef7408970863a9439c40, type: 3}
 --- !u!114 &5855278716394276384
 MonoBehaviour:
   m_ObjectHideFlags: 0
