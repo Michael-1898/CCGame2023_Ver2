@@ -47,6 +47,7 @@ public class RoboMovement : MonoBehaviour
             moveSpeed *= -1;
         }
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.position += new Vector3(0f, 2f, 0f);
     }
 
     // Update is called once per frame
