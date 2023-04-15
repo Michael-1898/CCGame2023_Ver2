@@ -10,7 +10,7 @@ public class WinCheck : MonoBehaviour
     {
         //check all player prefs
         if(PlayerPrefs.GetInt("toucan") == 1 && PlayerPrefs.GetInt("robot") == 1 && PlayerPrefs.GetInt("left") == 1 && PlayerPrefs.GetInt("right") == 1) {
-            GameObject.Find("WinOverlay").transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("WinContainer").transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -18,7 +18,7 @@ public class WinCheck : MonoBehaviour
     void Update()
     {
         if(PlayerPrefs.GetInt("toucan") != 1 || PlayerPrefs.GetInt("robot") != 1 || PlayerPrefs.GetInt("left") != 1 || PlayerPrefs.GetInt("right") != 1 && GameObject.Find("WinOverlay").active) {
-            GameObject.Find("WinOverlay").transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.Find("WinContainer").transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }
