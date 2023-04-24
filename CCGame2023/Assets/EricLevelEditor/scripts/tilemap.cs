@@ -36,7 +36,7 @@ public class tilemap : MonoBehaviour
     bool rectangleTool = false;
     bool info = false;
     Vector3 rectangleToolFirstClickLocation = new Vector3(-100f, -100f, 0f);
-    
+    string fileName;
 
     public int columns;
     public int rows;
@@ -53,6 +53,74 @@ public class tilemap : MonoBehaviour
         {
             allTileCurrentNumbers.Add(0);
         }
+
+        if(LoadLevel.LoadLevelFilePath != "")
+        {
+            string levelName = LoadLevel.LoadLevelFilePath + ".txt";
+            print(levelName);
+            fileName =  Application.streamingAssetsPath + "/" + levelName;
+            print(fileName);
+            try
+            { 
+                using (StreamReader reader = new StreamReader(fileName))  
+                {  
+                    reader.ReadLine();
+                    reader.ReadLine();
+                    reader.ReadLine();
+                    reader.ReadLine();
+                    levelInformation = reader.ReadLine();
+                }  
+
+            }
+            catch
+            {
+                print("This file can't be read");
+            }
+            print("1");
+            
+            for(int k = 0; k < levelInformation.Length; k++)
+            {
+                for(int l = 0; l < tilemap.allTileCharacters.Count; l++)
+                {
+                    if (levelInformation.Substring(k, 1) == tilemap.allTileCharacters[l])
+                    {
+                        tilePreview.transform.position = new Vector3Int(k % columns+1, Mathf.FloorToInt(k / columns)+1, 0);
+                        bool noXTiles = true;
+                        
+                        if (noXTiles)
+                        {
+                            currentTileIndex = l;
+                            currentTile = allTiles[l];
+                            currentTileSize = allTileSizes[l];
+                            if(allTileLimits[currentTileIndex] > allTileCurrentNumbers[currentTileIndex])
+                            {
+                                if (tilemap1.GetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0)) != xTile)
+                                {
+                                    currentDeletionLocation = new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0);
+                                    deleteXTiles();
+                                    tilemap1.SetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0), currentTile);
+                                    allTileCurrentNumbers[currentTileIndex]++;
+                                    print(tilemap1.GetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0)));
+                                }
+                                for (int m = 1; m < (currentTileSize.x * currentTileSize.y); m++)
+                                {
+                                    tilemap1.SetTile(new Vector3Int(Mathf.FloorToInt((tilePreview.transform.position.x - 0.5f) + (m % currentTileSize.x)), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f) + Mathf.FloorToInt(m / currentTileSize.x), 0), xTile);
+                                }
+                            
+                            }
+                            else
+                            {
+                                GameObject.Find("Warning Text").GetComponent<Text>().text = "Maximum number of the object/tile";
+                            }
+                                
+                        
+                        }
+                    }
+                }
+            }
+            print("2");
+        }
+
     }
 
     // Update is called once per frame
@@ -473,9 +541,16 @@ public class tilemap : MonoBehaviour
 
     public void saveLevel(string levelName, string creatorName)
     {
+        if(LoadLevel.LoadLevelFilePath != "")
+        {
+            File.Delete(fileName);
+        }
         bool fileExists = false;
-        string fileName =  Application.streamingAssetsPath + "/" + levelName + ".txt";
-
+        fileName =  Application.streamingAssetsPath + "/" + levelName + ".txt";
+        if(LoadLevel.LoadLevelFilePath != "")
+        {
+            File.Delete(fileName);
+        }
         DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
         FileInfo[] info = dir.GetFiles("*.*");
         foreach(FileInfo i in info)
@@ -486,7 +561,7 @@ public class tilemap : MonoBehaviour
                 GameObject.Find("Warning Text").GetComponent<Text>().text = "There is already a level named that. Please rename your level";
             }
         }
-
+        
         if(!fileExists)
         {
             FileStream stream = null;

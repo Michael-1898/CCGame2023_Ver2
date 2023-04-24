@@ -24,6 +24,7 @@ public class LoadLevel : MonoBehaviour
 
     void Start()
     {
+        
         PrintLevel(LoadLevelFilePath);
     }
 

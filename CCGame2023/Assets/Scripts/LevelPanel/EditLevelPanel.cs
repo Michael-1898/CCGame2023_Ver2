@@ -4,12 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelPanel : MonoBehaviour
+public class EditLevelPanel : MonoBehaviour
 {
     // Start is called before the first frame update
-    
-    
-    
     void Start()
     {
         
@@ -21,10 +18,9 @@ public class LevelPanel : MonoBehaviour
         
     }
 
-    public void playLevel()
+    public void EditLevel()
     {
-        LoadLevel.LoadLevelFilePath += ".txt";
-        LoadLevel.LoadLevelFilePath = gameObject.transform.GetChild(0).GetComponent<Text>().text + ".txt";
-        SceneManager.LoadScene("TestGame");
+        LoadLevel.LoadLevelFilePath = transform.parent.gameObject.transform.GetChild(0).GetComponent<Text>().text;
+        SceneManager.LoadScene("LevelEditor");
     }
 }

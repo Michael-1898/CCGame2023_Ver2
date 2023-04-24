@@ -17,6 +17,7 @@ public class TurnArrayToStatic : MonoBehaviour
 
     void Start()
     {
+        LoadLevel.LoadLevelFilePath = "";
         tilemap.allTiles = allTiles;
         tilemap.allTileCharacters = allTileCharacters;
         tilemap.allTileGameObjects = allTileGameObjects;
