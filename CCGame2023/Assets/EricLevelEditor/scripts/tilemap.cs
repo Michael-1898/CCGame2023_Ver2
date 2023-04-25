@@ -215,13 +215,13 @@ public class tilemap : MonoBehaviour
                         TileBase tempTile = tilemap1.GetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0));
                         tilemap1.SetTile(new Vector3Int(Mathf.FloorToInt(tilePreview.transform.position.x - 0.5f), Mathf.FloorToInt(tilePreview.transform.position.y - 0.5f), 0), null);
                         
-                        for(int z = 0; z < allTileCharacters.Count; z++)
+                        /*for(int z = 0; z < allTileCharacters.Count; z++)
                         {
                             if(allTiles[z] == tempTile)
                             {
                                 allTileCurrentNumbers[z]--;
                             }
-                        }
+                        }*/
                         
                     }
                 }
@@ -472,14 +472,19 @@ public class tilemap : MonoBehaviour
             if(allTileCharacters[i] == name)
             {
                 currentTile = allTiles[i];
+                tilePreview.transform.localScale = new Vector3(1f, 1f, 1f);
                 currentTileSize = allTileSizes[i];
                 currentTileIndex = i;
                 delete = false;
                 rectangleTool = false;
+                tilePreviewSR.color = Color.white;
+
             }
         }
         if(name == "delete")
         {
+            tilePreviewSR.color = Color.white;
+            tilePreview.transform.localScale = new Vector3(1f, 1f, 1f);
             delete = true;
             rectangleTool = false;
             currentTile = deleteTile;
@@ -488,6 +493,8 @@ public class tilemap : MonoBehaviour
         }
         if(name == "rectangleTool")
         {
+            tilePreviewSR.color = Color.white;
+            tilePreview.transform.localScale = new Vector3(1f, 1f, 1f);
             rectangleTool = true;
             delete = false;
             currentTile = rectangleToolTile;
@@ -496,6 +503,8 @@ public class tilemap : MonoBehaviour
         }
         if (name == "info")
         {
+            tilePreviewSR.color = Color.white;
+            tilePreview.transform.localScale = new Vector3(1f, 1f, 1f);
             info = true;
             rectangleTool = false;
             delete = false;
